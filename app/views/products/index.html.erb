@@ -1,0 +1,23 @@
+<h3 class="text-center">Products for Sale</h3>
+
+<div class="row">
+  <div class='col-md-12'>
+    <% @products.each do |product| %>
+    
+      <%= render "product_row", product: product, order_item: @order_item %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <#% @products.each do |product| %>
+      <#%= render "product_row", product: product, order_item: @order_item %>
+    <#% end %>
+  </div>
+</div>-->
+
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>

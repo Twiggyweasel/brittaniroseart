@@ -1,0 +1,42 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <div class='col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1'>
+      <%= render 'main_carousel' %>
+    </div>
+  
+    <div class="col-lg-3 visible-lg">
+        <span class='title'>Best Seller</span>
+        <div class="row text-center">
+            <div class="col-lg-12 col-md-12 hero-feature">
+                <div class="thumbnail">
+                	<a href="detail.html" class="link-p first-p image-slot">
+                	<img src="https://placehold.it/253x219" alt="" class='image-holder'>
+                </a>
+                <div class="caption prod-caption">
+                    <h4><a href="detail.html">Funkalicious Print T-Shirt</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+                    <p>
+                    	</p><div class="btn-group">
+                      	<a href="#" class="btn btn-default">$ 928.96</a>
+                      	<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>
+                    	</div>
+                    <p></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+ <div class='row'>
+   <div class='col-lg-12'>
+     <span class='title'>Featured Items</span>
+   <% @products.each do |product| %>
+   
+   <%= render "featured_row", product: product, order_item: @order_item %> 
+   
+   <% end %>
+   </div>
+ </div>

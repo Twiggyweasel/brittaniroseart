@@ -1,0 +1,6 @@
+<td><img src="https://placehold.it/47x47"></td>
+<td class='text-center'><%= product.name %></td>
+<td class='text-center'><%= order_item.quantity.to_i %></td>
+<td class='text-center'><%= number_to_currency order_item.unit_price %> </td>
+<td class='text-center'><%= number_to_currency order_item.total_price %></td>
+<td class='text-center'></span><%= link_to "delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %></td>

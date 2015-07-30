@@ -1,0 +1,79 @@
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+  </p>
+<% else %>
+  
+    <!--<#%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>-->
+    <div class='container'>
+    <div class="col-lg-3 visible-lg">
+        <span class='title'>Best Seller</span>
+        <div class="row text-center">
+            <div class="col-lg-12 col-md-12 hero-feature">
+                <div class="thumbnail">
+                	<a href="detail.html" class="link-p first-p image-slot">
+                	<img src="https://placehold.it/253x219" alt="" class='image-holder'>
+                </a>
+                <div class="caption prod-caption">
+                    <h4><a href="detail.html">Funkalicious Print T-Shirt</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+                    <p>
+                    	</p><div class="btn-group">
+                      	<a href="#" class="btn btn-default">$ 928.96</a>
+                      	<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>
+                    	</div>
+                    <p></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-9'>
+      <span class='title'>Shopping Cart</span>
+    <table class='table table-bordered'>
+    <thead>
+      <tr>
+        <td>Image</td>
+        <td>Product Name</td>
+        <td>Quantity</td>
+        <td>Unit Price</td>
+        <td>Subtotal</td>
+        <td>Remove</td>
+      </tr>
+    </thead> 
+    <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+    <%= render 'carts/cart_final', product: order_item.product, order_item: order_item, show_total: true %>
+      </tr>
+    <% end %>  
+      <tr>
+        <td colspan='5' align='right'>Total</td>
+        <td>$1001.00</td>
+      </tr>
+    
+    </tbody>
+    </table>
+    <br/>
+    <div class='btn btn-primary'>Continue Shopping</div>
+    <div class='btn btn-primary'>Update Cart</div>
+    <%= link_to "Checkout", new_billing_path, class: 'btn btn-primary' %>
+    </div>
+    </div>
+  
+<% end %>
+
+<br/>
+<br/>
+<br/>
+
+

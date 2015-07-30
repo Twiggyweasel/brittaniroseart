@@ -1,0 +1,24 @@
+<% if product.featured? %>
+<div class="col-lg-3 col-sm-3 hero-feature text-center">
+	     <div class="thumbnail">
+	       <a href="detail.html" class="link-p" style="overflow: hidden; position: relative;">
+	         <img src="https://placehold.it/253x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+	       </a>
+	         <div class="caption prod-caption">
+              <h4><a href="detail.html">Piece of Art</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+              <p>
+              <%= form_for order_item, remote: true do |f| %>
+              </p><div class="form-group">
+                <!--<a href="#" class="btn btn-default">$ 122.51</a>
+                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>-->
+                <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.submit "Add", class: "btn btn-primary" %>
+                	</div>
+                <% end %>
+                <p></p>
+            </div>
+        </div>
+	   </div>
+<% end %>

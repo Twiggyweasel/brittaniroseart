@@ -1,0 +1,6 @@
+<!--<#%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+<#%= link_to "", cart_path, class: 'glyphicon glyphicon-shopping-cart' %> <!--<span class='badge'><#%= current_order.order_items.size %></span>-->
+
+<%= link_to cart_path, class: "nav navbar-nav", id: 'cart-badge' do %>
+    <span class="glyphicon glyphicon-shopping-cart"></span><span class='badge' ><%= current_order.order_items.size %></span>
+<% end %>

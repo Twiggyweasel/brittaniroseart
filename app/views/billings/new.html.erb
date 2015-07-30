@@ -1,0 +1,102 @@
+<div class='row'>
+  <div class='col-md-3 visible-lg'>
+    <span class='title'>Recently viewed</span>
+    <div class="row text-center">
+      <div class="col-lg-12 col-md-12 hero-feature">
+        <div class="thumbnail">
+        	<a href="detail.html" class="link-p first-p image-slot">
+        	<img src="https://placehold.it/253x219" alt="" class='image-holder'>
+          </a>
+          <div class="caption prod-caption">
+            <h4><a href="detail.html">Funkalicious Print T-Shirt</a></h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+              <p></p>
+              <div class="btn-group">
+              	<a href="#" class="btn btn-default">$ 928.96</a>
+              	<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>
+            	</div>
+              <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-lg-9'>
+    <span class='title'>Shipping Address</span>
+    <table class='table table-bordered tbl-checkout'>
+      <tbody>
+        <%= form_for @billing do |f| %>
+        <tr>
+          
+          <td>First Name</td>
+          <td><%= f.text_field :first_name, class: 'form-control' %></td>
+          <td>Last Name</td>
+          <td><%= f.text_field :last_name, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%= f.email_field :email, class: 'form-control' %></td>
+          <td>Phone</td>
+          <td><%= f.text_field :phone, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Street Address</td>
+          <td colspan='3'><%= f.text_area :street, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td colspan='3'><%= f.text_field :city, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td><%= f.text_field :state, class: 'form-control' %></td>
+          <td>Zip Code</td>
+          <td><%= f.text_field :zip, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Comments</td>
+          <td colspan='3'><%= f.text_area :comment, class: 'form-control' %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-lg-9 col-lg-offset-3'>
+    <table class='table table-bordered'>
+      <thead>
+        <tr>
+          <td>Product Name</td>
+          <td>Quantity</td>
+          <td>Unit Price</td>
+          <td>Subtotal</td>
+          <td>Remove</td>
+        </tr>
+      </thead> 
+      <tbody>
+        <!-- Test Values -->
+        <tr>
+          <td>Artwork</td>
+          <td class='text-center'>1</td>
+          <td>$9.00</td>
+          <td >$9.00</td>
+          <td class='text-center'><button class='btn btn-danger'>delete</button></td>
+        </tr>
+        <!-- Create Link to Cart_Final.html -->
+        <tr>
+          <td colspan='3' align='right'>Flat Shipping Rate</td>
+          <td colspan='2'>$5.00</td>
+        </tr>
+        <tr>
+          <td colspan='3' align='right'>Total</td>
+          <td colspan='2'>$1001.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit "continue", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
