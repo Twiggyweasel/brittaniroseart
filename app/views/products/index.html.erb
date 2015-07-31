@@ -1,5 +1,13 @@
-<h3 class="text-center">Products for Sale</h3>
+<span class='title'>Products for Sale</span>
 
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">All Items</a></li>
+  <li role="presentation"><a href="#">Bookmarks</a></li>
+  <li role="presentation"><a href="#">Motivational</a></li>
+  <li role="presentation"><a href='#'>Other Items</a></li>
+</ul>
+
+<br/>
 <div class="row">
   <div class='col-md-12'>
     <% @products.each do |product| %>
@@ -20,4 +28,4 @@
 </div>-->
 
 <!-- Please call pinit.js only once per page -->
-<script type="text/javascript" async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" async defer data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
