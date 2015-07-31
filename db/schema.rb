@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730013035) do
+ActiveRecord::Schema.define(version: 20150730223959) do
 
   create_table "billings", force: :cascade do |t|
     t.string  "first_name"
@@ -61,11 +61,12 @@ ActiveRecord::Schema.define(version: 20150730013035) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",      precision: 12, scale: 3
+    t.decimal  "price",       precision: 12, scale: 3
     t.boolean  "active"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.boolean  "featured",                            default: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.boolean  "featured",                             default: false
+    t.text     "description"
   end
 
 end

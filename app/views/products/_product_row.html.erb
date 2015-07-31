@@ -7,8 +7,9 @@
 	       </a>
 	       
 	         <div class="caption prod-caption">
-              <h4><a href="detail.html"><%=product.name %></a></h4>
-              <p>Lorem ipsum dolor sit amet</p>
+              <h4><%= link_to product.name, product_path(product) %><!--<a href="detail.html"><#%=product.name %></a>--></h4>
+            
+              <p><%= product.description %><!--Lorem ipsum dolor sit amet--></p>
               <p>
                 <%= number_to_currency product.price %>
                 <%= form_for order_item, remote: true do |f| %>
@@ -48,4 +49,4 @@
   </div>
 </div>-->
 
-<!-- Please call pinit.js only once per page -->
+
