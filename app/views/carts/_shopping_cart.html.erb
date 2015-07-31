@@ -8,9 +8,27 @@
   </div>
 <% end %>
 <% if @order_items.size == 0 %>
-  <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
-  </p>
+
+  <div class='row'>
+    <div class='col-lg-6 col-lg-offset-3'>
+      <div class='well'>
+        <p class="text-center">
+          There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-lg-6 col-lg-offset-3'>
+      <span class='title'>Featured Items</span>
+      <% @products.each do |product| %>
+
+        <%= render "shared/featured_row", product: product, order_item: @order_item %> 
+
+      <% end %>
+    </div>
+  </div>
+
 <% else %>
   
     <!--<#%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>-->

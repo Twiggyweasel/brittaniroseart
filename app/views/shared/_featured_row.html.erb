@@ -1,3 +1,25 @@
+<% if current_page?(controller: 'carts', action: 'show') %>
+
+<% if product.featured? %>
+<div class="col-lg-3 col-sm-3 hero-feature text-center">
+	     <div class="thumbnail">
+	       <a href="detail.html" class="link-p" style="overflow: hidden; position: relative;">
+	         <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+	       </a>
+	         <div class="caption prod-caption">
+              <h4><a href="detail.html"><%= product.name %></a></h4>
+              <p><%= product.description %></p>
+              <p>
+                
+                <%= link_to "view", products_path(product), class: 'btn btn-primary' %>
+              <p></p>
+            </div>
+        </div>
+	   </div>
+<% end %>
+
+<% else %>
+
 <% if product.featured? %>
 <div class="col-lg-3 col-sm-3 hero-feature text-center">
 	     <div class="thumbnail">
@@ -8,6 +30,7 @@
               <h4><a href="detail.html">Piece of Art</a></h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
               <p>
+              
               <%= form_for order_item, remote: true do |f| %>
               </p><div class="form-group">
                 <!--<a href="#" class="btn btn-default">$ 122.51</a>
@@ -22,3 +45,4 @@
         </div>
 	   </div>
 <% end %>
+<%end %>

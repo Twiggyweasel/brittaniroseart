@@ -35,7 +35,7 @@
      <span class='title'>Featured Items</span>
    <% @products.each do |product| %>
    
-   <%= render "featured_row", product: product, order_item: @order_item %> 
+   <%= render "shared/featured_row", product: product, order_item: @order_item %> 
    
    <% end %>
    </div>
