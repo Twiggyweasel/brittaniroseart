@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   resources :billings
   resources :checkouts
+  resources :charges
   root 'welcome#index'
   get '/story', to: 'story#show'
   get '/info', to: 'welcome#info'
