@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :checkouts
   root 'welcome#index'
   get '/story', to: 'story#show'
+  get '/info', to: 'welcome#info'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
