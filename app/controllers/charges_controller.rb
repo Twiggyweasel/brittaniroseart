@@ -9,6 +9,8 @@ class ChargesController < ApplicationController
     # Amount in cents
     #@amount = 500
     @amount = current_order.total
+    current_order.order_status_id = 2
+    
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
       :card  => params[:stripeToken]
@@ -25,6 +27,4 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to charges_path
   end
-  
-  
 end
