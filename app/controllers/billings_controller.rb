@@ -1,7 +1,11 @@
 class BillingsController < ApplicationController
   
   def new
+    if Billing.exists?(:order_id => current_order.id)
+    redirect_to new_charge_path
+    else
     @billing = Billing.new
+    end
   end
   
   def create
