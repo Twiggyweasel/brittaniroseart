@@ -1,0 +1,35 @@
+<%= form_for @billing do |f| %>
+        <tr>
+          <td>First Name</td>
+          <td><%= f.text_field :first_name, class: 'form-control' %></td>
+          <td>Last Name</td>
+          <td><%= f.text_field :last_name, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%= f.email_field :email, class: 'form-control' %></td>
+          <td>Phone</td>
+          <td><%= f.text_field :phone, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Street Address</td>
+          <td colspan='3'><%= f.text_area :street, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td colspan='3'><%= f.text_field :city, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td><%= f.text_field :state, class: 'form-control' %></td>
+          <td>Zip Code</td>
+          <td><%= f.text_field :zip, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td>Comments</td>
+          <td colspan='3'><%= f.text_area :comment, class: 'form-control' %></td>
+        </tr>
+      </thead>
+    </table>
+    <%= f.submit "continue", class: 'btn btn-primary' %>
+    <% end %>

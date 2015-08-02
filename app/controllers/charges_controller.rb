@@ -1,6 +1,8 @@
 class ChargesController < ApplicationController
   
   def new
+    @billing = Billing.find_by_order_id(current_order)
+    @order_items = current_order.order_items
   end
 
   def create
