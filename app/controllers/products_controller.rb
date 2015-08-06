@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @products = Product.new(product_params)
     
     if @products.save
-      redirect_to products_path
+      redirect_to admin_path
     else
       render :new 
     end
@@ -34,6 +34,12 @@ class ProductsController < ApplicationController
   
   def show
     @products = Product.find(params[:id])
+    
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    @products = Product.all
+  end
   end
     private 
       def product_params
