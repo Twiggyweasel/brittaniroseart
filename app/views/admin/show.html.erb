@@ -1,29 +1,33 @@
 <div class='container'>
+  <div class='tabbable-panel'>
+    <div class="tabbable-line">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#products" aria-controls="products" role="tab" data-toggle="tab">Products</a></li>
     <li role="presentation"><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">Orders</a></li>
+    <li role='presentation'><a href='#customOrders' aria-controls='customOrders' role='tab' data-toggle='tab'>Custom Orders</a></li>
   </ul>
-
+</div>
+  </div>
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="products">
-      <div class='col-lg-8 col-lg-offset-2 well'>
-        <div class='text-center'>
-          <h3>Products</h3>
-        </div>
+      <br/>
+      <div class='col-lg-12 well'>
         <div class='col-md-2'>
+        
         <%= link_to "New Product", new_product_path, class: 'btn btn-primary'%>
         </div>
-        <div class='col-md-2'>
+        <div class='col-md-2 pull-right'>
           <Select class='form-control'>
             <option>All Items</option>
             <option>Featured Items</option>
             <option>Item Type</option>
           </Select>
         </div>
-        <br>
-        <br>
+        <br/>
+        <br/>
+        <br/>
         <table class='table table-bordered'>
           <thead>
             <tr>
@@ -44,8 +48,36 @@
       </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="orders">
-      <div class='col-lg-8 col-lg-offset-2 well'>
+      <br/>
+      <div class='col-lg-12 well'>
         <%= render 'orders' %>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="customOrders">
+      <br/>
+      <div class='col-lg-12 well'>
+        <br/>
+        <br/>
+        <br/>
+        <table class='table table-bordered'>
+          <thead>
+            <tr>
+              <td>Custom Order Id</td>
+              <td>Item Ordered</td>
+              <td>Quantity</td>
+              <td>Background</td>
+              <td>Color</td>
+              <td>Custom Text</td>
+              <td>Approve or Deny</td>
+              <td>Paid</td>
+              <td>Shipped</td>
+              </tr>
+          </thead>
+          <tbody>
+            <%= render 'custom_orders' %>
+          </tbody>
+        </table>
+        
       </div>
     </div>
   </div>

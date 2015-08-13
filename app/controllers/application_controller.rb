@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
      Order.new
   end
   end
-  def new_order
-    if current_order.order_status_id > 1
-      Order.new
-    else
-      current_order = current_order
-    end
-  end
+ # def new_order
+    #if current_order.order_status_id > 1
+     # Order.new
+    #else
+     # current_order = current_order
+    #end
+  #end
 end

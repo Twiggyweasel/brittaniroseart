@@ -1,0 +1,51 @@
+<div class='col-lg-6'>
+  <div class='well'>
+    <span class='title'>Demo</span>
+    <img src='https://placehold.it/400x450' class='center-block'>
+  </div>
+</div>
+<div class='col-lg-4 col-lg-offset-1'>
+  <div class='well'>
+    <span class='title'>Custom Order</span>
+    <label>Custom Item Type</label>
+    <select class='form-control select_option' placeholder="work">
+      <option>Select one</option>
+      <option value='test'>Test</option>
+      <option value='test2'>Test2</option>
+    </select>
+    <div id='test' style="display:none;">
+    <label>Color</label>
+    <select class='form-control'>
+      <option>work</option>
+    </select>
+    </div>
+    <div id='test2' style="display:none;">
+    <label>Background Style</label>
+    <select class='form-control'>
+      <option>doesn't work</option>
+    </select>
+    
+    <label>Size</label>
+    <select class='form-control'>
+      <option></option>
+    </select>
+    </div>
+    <br/>
+      <button type="submit" class="btn btn-default">Submit</button>
+</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( ".select_option" ).change(function() {
+            if($(this).val() == 'test') {
+              $('#test2').hide();
+              $('#test').show();
+            } else {
+              $('#test').hide();
+              $('#test2').show();
+            }
+        });
+        });
+</script>

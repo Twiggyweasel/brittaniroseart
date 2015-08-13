@@ -1,11 +1,15 @@
 <%= form_for @products do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
+  <br>
   <%= f.label :price %>
   <%= f.number_field :price, class: "form-control", value: 1.00 %>
+  <br>
   <%= f.label :description %>
   <%= f.text_area :description, class: "form-control" %>
-  <%= f.label "Featured Item?" %>
-  <%= f.check_box :featured %> <br />
+  <br>
+  <%= f.check_box :featured %>
+  <%= f.label "Featured Item" %>
+  <br />
   <%= f.submit(@products.new_record? ? "Create New Product" : "Edit Product", class: "btn btn-success") %>
 <% end %>

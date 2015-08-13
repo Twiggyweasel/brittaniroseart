@@ -9,7 +9,11 @@ class ChargesController < ApplicationController
     # Amount in cents
     #@amount = 500
     @amount = current_order.total
-    current_order.order_status_id = 2
+    
+    @current_order = current_order
+    
+    @current_order.order_status_id = 2
+    @current_order.save
     
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
@@ -27,4 +31,9 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to charges_path
   end
+    private
+      def order_params
+        params.require(:order).permit(:order_status_id)
+      end
+    end
 end
