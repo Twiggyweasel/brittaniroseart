@@ -35,5 +35,4 @@ class ChargesController < ApplicationController
       def order_params
         params.require(:order).permit(:order_status_id)
       end
-    end
 end
