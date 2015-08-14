@@ -6,8 +6,12 @@ class ApplicationController < ActionController::Base
   #before_filter :new_order
   def current_order
     
-  if !session[:order_id].nil? 
-     Order.find(session[:order_id])
+  if !session[:order_id].nil?
+    if Order.find(session[:order_id]).order_status_id == 2
+      Order.new
+    else
+      Order.find(session[:order_id])
+    end
    else
      Order.new
   end

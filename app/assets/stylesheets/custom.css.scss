@@ -1,13 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
 body {
   margin-top: 65px;
+  height: 100%;
+}
+
+.main {
+  
+  padding-bottom: 210px; /* this needs to be bigger than footer height*/
+}
+#wrap {
+  min-height: 100%;
 }
 
 footer {
   color: #eee;
   background: #384248;
+  position: relative;
+  margin-top: -200px; /* negative value of footer height */
+  height: 200px;
+  clear: both;
+  padding-top: 20px;
 }
 .carousel-box {
   margin: 0;
