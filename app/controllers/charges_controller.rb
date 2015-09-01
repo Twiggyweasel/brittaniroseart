@@ -14,6 +14,7 @@ class ChargesController < ApplicationController
     
     @current_order.order_status_id = 2
     @current_order.save
+    
       
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',

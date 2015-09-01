@@ -6,14 +6,19 @@
     <tr>
       <td>Order Number</td>
       <td>Order Status</td>
+      <td>First Name</td>
+      <td>last Name</td>
     </tr>
   </thead>
   <tbody>
   <% @orders.each do |order|%>
     <tr>
       <td><%= order.id %></td>
-      <td><%=order.order_status_id %></td>
-      <td></td>
+      <td><%=order.order_status.name %></td>
+      <% order.billing do |billing| %>
+      <td><%= billing.first_name %></td>
+      <td><%= billing.last_name %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
