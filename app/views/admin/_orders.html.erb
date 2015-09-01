@@ -8,6 +8,12 @@
       <td>Order Status</td>
       <td>First Name</td>
       <td>last Name</td>
+      <td>Email</td>
+      <td>Phone #</td>
+      <td>Street Address</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Zip</td>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +21,24 @@
     <tr>
       <td><%= order.id %></td>
       <td><%=order.order_status.name %></td>
-      <% order.billing do |billing| %>
-      <td><%= billing.first_name %></td>
-      <td><%= billing.last_name %></td>
+      <% if order.billing.nil? %>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <% else %>
+      <td><%= order.billing.first_name %></td>
+      <td><%= order.billing.last_name %></td>
+      <td><%= order.billing.email %></td>
+      <td><%= order.billing.phone %></td>
+      <td><%= order.billing.street %></td>
+      <td><%= order.billing.city %></td>
+      <td><%= order.billing.state %></td>
+      <td><%= order.billing.zip %></td>
       <% end %>
     </tr>
   <% end %>
