@@ -30,9 +30,8 @@ class ChargesController < ApplicationController
     )
   @current_order.order_status_id = 2
   @current_order.save
-  
-  session[:order_id] = Order.new
-  redirect_to charges_path
+  session[:order_id] = nil
+  redirect_to root_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path

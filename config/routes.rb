@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :charges
   
 #custom Views
-  post '/thanks', to: 'charges#create'
+  post '/thanks', to: 'charges#index'
   get '/story', to: 'welcome#story'
   get '/info', to: 'welcome#info'
   get '/admin', to: 'admin#show'
