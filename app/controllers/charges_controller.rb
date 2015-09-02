@@ -4,7 +4,9 @@ class ChargesController < ApplicationController
     @billing = Billing.find_by_order_id(current_order)
     @order_items = current_order.order_items
   end
-
+  def index
+  
+  end
   def create
     # Amount in cents
     #@amount = 500
@@ -30,6 +32,7 @@ class ChargesController < ApplicationController
   @current_order.save
   
   session[:order_id] = Order.new
+  redirect_to charges_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
