@@ -12,8 +12,7 @@ class ChargesController < ApplicationController
     
     @current_order = current_order
     
-    @current_order.order_status_id = 2
-    @current_order.save
+    
     
       
     customer = Stripe::Customer.create(
@@ -27,7 +26,10 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
+  @current_order.order_status_id = 2
+  @current_order.save
   
+  session[:order_id] = Order.new
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
