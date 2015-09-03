@@ -1,12 +1,50 @@
-<tr>
+
+<div class='col-md-2'>
+        <%= link_to "New Product", new_product_path, class: 'btn btn-primary' %>
+        
+        </div>
+        <div class='col-md-2'>
+        <%= link_to "New Category", new_product_path, class: 'btn btn-primary' %>
+        </div>
+        <div class='col-md-2 pull-right'>
+          <Select class='form-control'>
+            <option>All Items</option>
+            <option>Featured Items</option>
+            <option>Item Type</option>
+          </Select>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class='row'>
+        <table class='table table-bordered'>
+          <thead>
+            <tr>
+              <td>Product Image</td>
+              <td>Product Name</td>
+              <td>Category</td>
+              <td>Unit Price</td>
+              <td>Description</td>
+              <td>Featured</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |products| %>
+            <tr>
   <td><img src="http://placehold.it/65x56"></td>
   <td><%= products.name %></td>
+  <td><%= products.category.name %></td>
   <td><%= number_to_currency products.price %></td>
   <td><%= products.description %></td>
   <td><%= products.featured %></td>
   <td><%= link_to "edit", edit_product_path(products), class: 'btn btn-primary'%>
   /
-  <%= link_to "delete", products, { data: { confirm: "Are you sure you wish to delete the product '#{products.name}'" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+  <%= link_to "delete", product_path(products), :method => :delete, class: "btn btn-danger" %>
   </td>
       
 </tr>
+            <% end %>
+           </tbody>
+        </table>
+        </div>

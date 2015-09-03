@@ -5,6 +5,11 @@
   <%= f.label :price %>
   <%= f.number_field :price, class: "form-control", value: 1.00 %>
   <br>
+  <%= f.label "Category" %>
+  <br>
+  <%= f.select :category_id, @category.collect { |c| [c.name, c.id] }, class: 'form-control' %>
+  <br>
+  <br>
   <%= f.label :description %>
   <%= f.text_area :description, class: "form-control" %>
   <br>

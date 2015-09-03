@@ -1,31 +1,42 @@
 <span class='title'>Products for Sale</span>
-
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#">All Items</a></li>
-  <li role="presentation"><a href="#">Bookmarks</a></li>
-  <li role="presentation"><a href="#">Motivational</a></li>
-  <li role="presentation"><a href='#'>Other Items</a></li>
+ <div class='tabbable-panel'>
+    <div class="tabbable-line">
+ <!--nav tabs-->
+<ul class="nav nav-tabs" role='tablist'>
+  <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All Items</a></li>
+  <% @category.each do |category| %>
+  <li role="presentation"><a href="#<%= category.id %>" aria-controls="<%= category.name %>" role="tab" data-toggle="tab"><%= category.name %></a></li>
+  <% end %>
 </ul>
-
-<br/>
-<div class="row">
-  <div class='col-md-12 col-xs-8 col-sm-10'>
-    <% @products.each do |product| %>
-    
-      <%= render "product_row", product: product, order_item: @order_item %>
-    <% end %>
-  </div>
 </div>
+</div>
+<br/>
 
-
-
-<!--<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <#% @products.each do |product| %>
-      <#%= render "product_row", product: product, order_item: @order_item %>
-    <#% end %>
-  </div>
-</div>-->
+<!--Tab panes-->
+<div class='tab-content'>
+  <!--All Panel-->
+  <div role='tab-panel' class='tab-pane fade in active' id='all'>
+     <div class="row">
+      <div class='col-md-12 col-xs-8 col-sm-10'>
+        <% @products.each do |product| %>
+        
+          <%= render "product_row", product: product, order_item: @order_item %>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+  <% @category.each_with_index do |cat, index| %>
+    <div role='tab-panel' class='tab-pane fade' id='<%= cat.id %>'>  
+      <div class="row">
+        <div class='col-md-12 col-xs-8 col-sm-10'>
+          <% cat.products.each do |product| %>
+          <%= render "filtered_row", product: product, order_item: @order_item %>
+          <% end %>
+        </div>
+      </div>
+    </div>  
+    <% end %>
+</div>
 
 <!-- Please call pinit.js only once per page -->
 <script type="text/javascript" async defer data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>

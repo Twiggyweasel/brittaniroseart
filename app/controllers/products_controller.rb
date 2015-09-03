@@ -2,10 +2,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @order_item = current_order.order_items.new
+    @category = Category.all
   end
   
   def new
     @products = Product.new
+    @category = Category.all
   end
   
   def create 
@@ -20,6 +22,7 @@ class ProductsController < ApplicationController
   
   def edit
     @products = Product.find(params[:id])
+    @category = Category.all
   end
   
   def update
@@ -34,16 +37,17 @@ class ProductsController < ApplicationController
   
   def show
     @products = Product.find(params[:id])
-    
+  end 
+  
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    @products = Product.all
+    redirect_to admin_path
   end
-  end
+  
     private 
       def product_params
-        params.require(:product).permit(:name,:price, :featured, :description)
+        params.require(:product).permit(:name,:price, :category_id, :featured, :description)
       end
-  
 end
+

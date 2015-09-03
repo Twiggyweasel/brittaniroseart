@@ -15,3 +15,8 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
+
+Category.create! id: 1, name: "Bookmarks"
+Category.create! id: 2, name: "Inspirational"
+Category.create! id: 3, name: "Drawings"
+Category.create! id: 4, name: "Household Items"
