@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :billings
   resources :checkouts
   resources :charges
+  resources :orders, only: [:edit, :update, :show]
   
 #custom Views
   post '/thanks', to: 'charges#index'

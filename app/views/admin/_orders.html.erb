@@ -14,6 +14,7 @@
       <td>City</td>
       <td>State</td>
       <td>Zip</td>
+      <td>Actions</td>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +31,7 @@
       <td>N/A</td>
       <td>N/A</td>
       <td>N/A</td>
+      <td></td>
       <% else %>
       <td><%= order.billing.first_name %></td>
       <td><%= order.billing.last_name %></td>
@@ -39,6 +41,7 @@
       <td><%= order.billing.city %></td>
       <td><%= order.billing.state %></td>
       <td><%= order.billing.zip %></td>
+      <td><%= link_to "Details", order_path(order), class: 'btn btn-primary' %></td>
       <% end %>
     </tr>
   <% end %>

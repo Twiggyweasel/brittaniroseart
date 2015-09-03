@@ -1,0 +1,17 @@
+<div class='col-md-6 col-md-offset-3 well'>
+  <h2>Update Order</h2>
+  <hr>
+  <%= form_for @order do |f| %>
+    <%= f.label "Order Status" %>
+    <br>
+    
+    <%= f.select :order_status_id, @status.collect { |d| [d.name , d.id] }, class: 'form-control' %>
+    <br>
+    <br>
+    <%= f.label "Tracking Number" %>
+    <br>
+    <%= f.text_field :tracking, class: 'form-control' %>
+    <br>
+    <%= f.submit "Update", class: 'btn btn-success btn-block' %>
+  <% end %>
+</div>
