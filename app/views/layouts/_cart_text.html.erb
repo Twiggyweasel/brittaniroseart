@@ -3,7 +3,7 @@
 
 <%= link_to cart_path, class: "nav navbar-nav", id: 'cart-badge' do %>
   <% if current_order.order_status_id == 1 %>
-    <span class="glyphicon glyphicon-shopping-cart"></span><span class='badge' ><%= current_order.order_items.size %></span>
+    <span class="glyphicon glyphicon-shopping-cart"></span><span class='badge' ><%= current_order.order_items.collect { |count| (count.quantity)}.sum %></span>
   <% else %>
     <span class="glyphicon glyphicon-shopping-cart"></span><span class='badge' >0</span>
   <% end %>

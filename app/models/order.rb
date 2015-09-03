@@ -10,16 +10,25 @@ class Order < ActiveRecord::Base
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
+  
+  def shipping
+    if order_items.collect { |work| (work.quantity) }.sum > 5
+      10
+    else
+      5
+    end
+  end
 private
   def set_order_status
     self.order_status_id = 1
+    self.shipping = 5.00
   end
-
+  
   def update_subtotal
     self[:subtotal] = subtotal
   end
   
   def update_total
-    self[:total] = subtotal
+    self[:total] = subtotal + shipping
   end
 end
