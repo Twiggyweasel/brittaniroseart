@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(version: 20150903170014) do
     t.decimal  "tax",             precision: 12, scale: 3
     t.decimal  "shipping",        precision: 12, scale: 3
     t.decimal  "total",           precision: 12, scale: 3
+    t.string   "order_number"
+    t.string   "tracking"
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
-    t.string   "tracking"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
@@ -69,12 +70,12 @@ ActiveRecord::Schema.define(version: 20150903170014) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",       precision: 12, scale: 3
-    t.boolean  "active"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.boolean  "featured",                             default: false
+    t.boolean  "featured"
     t.text     "description"
+    t.boolean  "active"
     t.integer  "category_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end

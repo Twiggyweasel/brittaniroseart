@@ -20,7 +20,7 @@
   <tbody>
   <% @orders.each do |order|%>
     <tr>
-      <td><%= order.id %></td>
+      <td><%= order.order_number %></td>
       <td><%=order.order_status.name %></td>
       <% if order.billing.nil? %>
       <td>N/A</td>

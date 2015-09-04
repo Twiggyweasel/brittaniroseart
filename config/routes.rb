@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get '/info', to: 'welcome#info'
   get '/admin', to: 'admin#show'
   get '/custom_order', to: 'custom_orders#new'
+  get '/order_lookup', to: 'welcome#order_lookup'
  
 end

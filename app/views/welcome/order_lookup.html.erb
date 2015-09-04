@@ -1,0 +1,8 @@
+<div class='col-md-10 col-md-offset-1 well'>
+  <span class='title'>Order Lookup</span>
+ 
+<%= form_tag order_lookup_path, method: :get do %>
+  <%= text_field_tag :order_number %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>

@@ -12,4 +12,13 @@ class WelcomeController < ApplicationController
    def story
    end
    
+   def order_lookup
+      @order = Order.where(order_number: params[:order_number]).first
+      
+      if @order.present?
+         redirect_to order_path(@order)
+      else
+         flash[:danger] = "No orders found."
+      end
+   end
 end

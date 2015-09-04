@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
   has_one :billing
   
   has_many :order_items
-  before_create :set_order_status
+  before_create :set_order_status, :create_order_number
   before_save :update_subtotal, :update_total
   
   def subtotal
@@ -31,4 +31,10 @@ private
   def update_total
     self[:total] = subtotal + shipping
   end
+  
+def create_order_number
+  begin
+    self.order_number = SecureRandom.hex(5)
+  end while self.class.exists?(:order_number => order_number)
+end
 end
