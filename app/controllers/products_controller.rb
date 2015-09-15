@@ -36,7 +36,9 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @products = Product.find(params[:id])
+    @product = Product.find(params[:id])
+    @related = Product.where("category_id = ?", @product.category_id ).limit(4)
+    @order_item = current_order.order_items.new
   end 
   
   def destroy
@@ -47,7 +49,7 @@ class ProductsController < ApplicationController
   
     private 
       def product_params
-        params.require(:product).permit(:name,:price, :category_id, :featured, :description)
+        params.require(:product).permit(:name,:price, :category_id, :featured, :description, :picture)
       end
 end
 

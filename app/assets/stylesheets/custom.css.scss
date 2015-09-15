@@ -5,7 +5,7 @@ html {
   height: 100%;
 }
 body {
-  margin-top: 65px;
+margin-top: 85px;
   height: 100%;
 }
 
@@ -240,5 +240,19 @@ thead>tr>td{
   margin-top: -10px;
   border-top: 0;
   border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: border .2s ease-in-out;
+}
+
+.listing-image {
   padding-bottom: 15px;
 }

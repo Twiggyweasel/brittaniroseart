@@ -34,7 +34,9 @@ private
   
 def create_order_number
   begin
-    self.order_number = SecureRandom.hex(5)
+    self.order_number = SecureRandom.random_number(1000000)
   end while self.class.exists?(:order_number => order_number)
 end
 end
+
+#SecureRandom.hex(5)
