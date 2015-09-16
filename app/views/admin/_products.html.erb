@@ -20,13 +20,13 @@
         <table class='table table-bordered'>
           <thead>
             <tr>
-              <td>Product Image</td>
-              <td>Product Name</td>
-              <td>Category</td>
-              <td>Unit Price</td>
-              <td>Description</td>
-              <td>Featured</td>
-              <td>Actions</td>
+              <th>Product Image</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Unit Price</th>
+              <th>Description</th>
+              <th>Featured</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +40,7 @@
   <td><%= products.featured %></td>
   <td><%= link_to "edit", edit_product_path(products), class: 'btn btn-primary'%>
   /
-  <%= link_to "delete", product_path(products), :method => :delete, class: "btn btn-danger" %>
+  <%= link_to "delete", product_path(products), :metdod => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </td>
       
 </tr>
