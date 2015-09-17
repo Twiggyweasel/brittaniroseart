@@ -16,7 +16,10 @@
         <%= form_for order_item, remote: true do |f| %>
         <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
         <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
+        <!--<#%= f.submit "Add", class: "btn btn-primary" %>-->
+        <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
+          <span class='glyphicon glyphicon-shopping-cart'></span> Add 
+        <% end %>
         <% end %>
     	</div>
       <p></p>

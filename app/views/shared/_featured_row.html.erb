@@ -32,7 +32,7 @@
 	       </a>
 	         <div class="caption prod-caption">
               <h4><a href="products/<%= product.id %>"><%= product.name %></a></h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
+              <p><%= number_to_currency product.price %></p>
               <p>
               
               <%= form_for order_item, remote: true do |f| %>
@@ -41,7 +41,10 @@
                 <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>-->
                 <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
                 <%= f.hidden_field :product_id, value: product.id %>
-                <%= f.submit "Add", class: "btn btn-primary" %>
+                <!--<#%= f.submit "Add", class: "btn btn-primary" %>-->
+                <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
+                 <span class='glyphicon glyphicon-shopping-cart'></span> Add 
+                <% end %>	
                 	</div>
                 <% end %>
                 <p></p>
