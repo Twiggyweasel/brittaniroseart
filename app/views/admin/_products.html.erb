@@ -32,18 +32,22 @@
           <tbody>
             <% @products.each do |products| %>
             <tr>
-  <td><img src="http://placehold.it/65x56"></td>
-  <td><%= products.name %></td>
-  <td><%= products.category.name %></td>
-  <td><%= number_to_currency products.price %></td>
-  <td><%= products.description %></td>
-  <td><%= products.featured %></td>
-  <td><%= link_to "edit", edit_product_path(products), class: 'btn btn-primary'%>
-  /
-  <%= link_to "delete", product_path(products), :metdod => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-  </td>
+              <% if products.picture.blank? %>
+              <td><img src="http://placehold.it/65x56"></td>
+              <% else %> 
+              <td><img src="<%= products.picture.url %>" style="width: 65px; height: auto;"></td>
+              <% end %>
+              <td><%= products.name %></td>
+              <td><%= products.category.name %></td>
+              <td><%= number_to_currency products.price %></td>
+              <td><%= products.description %></td>
+              <td><%= products.featured %></td>
+              <td><%= link_to "edit", edit_product_path(products), class: 'btn btn-primary'%>
+              /
+              <%= link_to "delete", product_path(products), :metdod => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              </td>
       
-</tr>
+            </tr>
             <% end %>
            </tbody>
         </table>
