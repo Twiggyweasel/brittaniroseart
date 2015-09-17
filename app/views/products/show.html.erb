@@ -16,7 +16,7 @@
   <% if @product.picture.blank? %>
   <img src='https://placehold.it/400x400' class='img-responsive listing-image'>
   <% else %>
-  <img src='<%= @product.picture.url %>' class='img-responsive listing-image' style="position: absolute; width: 400px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;" >
+  <img src='<%= @product.picture.url %>' class='img-responsive listing-image' style="width: 400px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;" >
   <% end %>
 </div>
 <!--End Item Image-->
