@@ -1,55 +1,67 @@
+<!--Checks for current view-->
 <% if current_page?(controller: 'carts', action: 'show') %>
+<!--If view is carts-->
 
+<!--Finds Featured Items and displays them-->
 <% if product.featured? %>
 <div class="col-lg-3 col-md-3 hero-feature text-center">
-	     <div class="thumbnail product-listing">
-	       <a href="detail.html" class="link-p" style="overflow: hidden; position: relative;">
-	         <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
-	       </a>
-	         <div class="caption prod-caption">
-              <h4><a href="detail.html"><%= product.name %></a></h4>
-              <p><%= product.description %></p>
-              <p>
-                
-                <%= link_to "view", products_path(product), class: 'btn btn-primary' %>
-              <p></p>
-            </div>
-        </div>
-	   </div>
+  <div class="thumbnail product-listing">
+    <a href="detail.html" class="link-p" style="overflow: hidden; position: relative;">
+      <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+    </a>
+	  <div class="caption prod-caption">
+      <h4><a href="detail.html"><%= product.name %></a></h4>
+        <p><%= product.description %></p>
+        <p>
+          <%= link_to "view", products_path(product), class: 'btn btn-primary' %>
+        </p>
+    </div>
+  </div>
+</div>
+<!--End check for Featured Items-->
 <% end %>
+
 
 <% else %>
+<!--if view is anything else-->
 
+<!--Finds Featured Items and displays them-->
 <% if product.featured? %>
+
 <div class="col-lg-3 col-sm-3 hero-feature text-center product-listing">
-	     <div class="thumbnail product-listing">
-	       <a href="products/<%= product.id %>" class="link-p" style="overflow: hidden; position: relative;">
-	        <% if !product.picture.blank? %>
-	         <img src="<%= product.picture.url %>" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
-	         <% else %>
-	         <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
-	       <% end %>
-	       </a>
-	         <div class="caption prod-caption">
-              <h4><a href="products/<%= product.id %>"><%= product.name %></a></h4>
-              <p><%= number_to_currency product.price %></p>
-              <p>
-              
-              <%= form_for order_item, remote: true do |f| %>
-              </p><div class="form-group">
-                <!--<a href="#" class="btn btn-default">$ 122.51</a>
-                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>-->
-                <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
-                <%= f.hidden_field :product_id, value: product.id %>
-                <!--<#%= f.submit "Add", class: "btn btn-primary" %>-->
-                <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
-                 <span class='glyphicon glyphicon-shopping-cart'></span> Add 
-                <% end %>	
-                	</div>
-                <% end %>
-                <p></p>
-            </div>
-        </div>
-	   </div>
+  <div class="thumbnail product-listing">
+    <a href="products/<%= product.id %>" class="link-p" style="overflow: hidden; position: relative;">
+      <!--Checks if product listing has a picture-->
+      <% if product.picture.blank? %>
+        <!--if no picture displays as placeholder -->
+        <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+      <% else %>
+        <!--if picture is found picture is displayed-->
+        <img src="<%= product.picture.url %>" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+      <!--End check for Pricture-->
+      <% end %>
+    </a>
+	<div class="caption prod-caption">
+    <h4><a href="products/<%= product.id %>"><%= product.name %></a></h4>
+      <p><%= number_to_currency product.price %></p>
+      <p>
+      </p>
+      <!--Creates form to add item to cart-->
+      <%= form_for order_item, remote: true do |f| %>
+      <div class="form-group">
+        <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
+         <span class='glyphicon glyphicon-shopping-cart'></span> Add 
+        <% end %>	
+      </div>
+      <!--End form-->
+      <% end %>
+      <p></p>
+      </div>
+    </div>
+</div>
+<!--End check for Featured Items-->
 <% end %>
+<!--End View Check-->
 <% end %>

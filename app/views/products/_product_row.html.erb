@@ -1,59 +1,29 @@
 <div class="col-lg-3 col-sm-3 hero-feature text-center">
-<div class="thumbnail product-listing">
-         
-	       <a href="/products/<%= product.id %>" class="link-p" style="overflow: hidden; position: relative;">
-	         <% if !product.picture.blank? %>
-	         <img src="<%= product.picture.url %>" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
-	         <% else %>
-	         <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
-	         
-	         <% end %>
-	       </a>
-	       
-	         <div class="caption prod-caption">
-              <h4><%= link_to product.name, product_path(product) %><!--<a href="detail.html"><#%=product.name %></a>--></h4>
-            
-              
-              <p>
-                <%= number_to_currency product.price %>
-                <%= form_for order_item, remote: true do |f| %>
-              </p><div class="form-group">
-                <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
-                <%= f.hidden_field :product_id, value: product.id %>
-                <!--<#%= f.submit "Add", class: "btn btn-primary" %>-->
-                <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
-                 <span class='glyphicon glyphicon-shopping-cart'></span> Add 
-                <% end %>
-                <!--<a href="#" class="btn btn-default">11.00</a>
-                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Add</a>-->
-                	</div>
-                	<% end %>
-                <p></p>
-            </div>
+  <div class="thumbnail product-listing">
+    <a href="/products/<%= product.id %>" class="link-p" style="overflow: hidden; position: relative;">
+    <% if product.picture.blank? %>
+      <img src="https://placehold.it/250x250" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">
+    <% else %>
+      <img src="<%= product.picture.url %>" alt="" style="position: absolute; width: 250px; height: auto; max-width: none; max-height: none; left: -4px; top: 0px;">  
+    <% end %>
+    </a>
+
+    <div class="caption prod-caption">
+      <h4><%= link_to product.name, product_path(product) %></h4>
+      <p><%= number_to_currency product.price %></p>
+      <%= form_for order_item, remote: true do |f| %>
+        <div class="form-group">
+          <%= f.number_field :quantity, value: 1, class: "form-control form-width", min: 1 %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.button(type: 'submit', class: 'btn btn-primary') do %>
+            <span class='glyphicon glyphicon-shopping-cart'></span> Add 
+          <% end %>
         </div>
+      <% end %>
+    <p></p>
+    </div>
+  </div>
 </div>
 
-<!--<div class="well">
-
-  <div class="row">
-    <div class="col-xs-8">
-      <h4><#%= product.name %></small></h4>
-    </div>
-    <div class="col-xs-4">
-      
-      <#%= form_for order_item, remote: true do |f| %>
-      <h4 class="text-right">Unit Price: <span style="color: green"><#%= number_to_currency product.price %></span></h4>
-        <div class="input-group">
-          <#%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-          <div class="input-group-btn">
-            <#%= f.hidden_field :product_id, value: product.id %>
-            <#%= f.submit "Add to Cart", class: "btn btn-primary" %>
-          </div>
-        </div>
-      <#% end %>
-    </div>
-    
-  </div>
-</div>-->
 
 
